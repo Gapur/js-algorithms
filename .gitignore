@@ -1,0 +1,16 @@
+# OS X
+.DS_Store*
+Icon?
+._*
+
+.env
+.envrc
+
+# npm
+node_modules
+*.log
+*.gz
+
+public
+sessions
+.vscode
