@@ -4,6 +4,8 @@ const selectionSort = require('./selection');
 const mergeSort = require('./merge');
 const quickSort = require('./quicksort');
 
+console.log('start sort -------');
+
 const arrayToBuble = [4, 2, 5, 2, 10, 5, 7, 12, 4];
 
 const bubbleSortedArray = bubbleSort(arrayToBuble);
@@ -34,5 +36,7 @@ const arrayToQuicksort = [8, 2, 5, 1, 1, 7, 9, 4, 3];
 const quicksortSortedArray = quickSort(arrayToQuicksort, 0, arrayToQuicksort.length - 1);
 
 console.log(`Array sorted by quicksort: ${quicksortSortedArray.join(', ')}`);
+
+console.log('end sort --------');
 
 module.exports = () => console.log('sort is done');
