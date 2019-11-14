@@ -1,5 +1,6 @@
 const hammingDistance = require('./hammingDistance');
 const knuthMorrisPratt = require('./knuthMorrisPratt');
+const levenshteinDistance = require('./levenshteinDistance');
 
 console.log('start string -------');
 
@@ -16,6 +17,13 @@ const word = 'TEST';
 const kmp = knuthMorrisPratt(text, word);
 
 console.log(`Knuth Morris Pratt word=${word} text=${text} index=${kmp}`);
+
+const strFrom = 'kitten';
+const strTo = 'sitting';
+
+const lvnshteinDistance = levenshteinDistance(strFrom, strTo);
+
+console.log(`Levenshtein Distance ${lvnshteinDistance} from=${strFrom} to=${strTo}`);
 
 console.log('end string --------');
 
