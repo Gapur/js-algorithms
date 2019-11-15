@@ -27,7 +27,7 @@ const levenshteinDistance = (a, b) => {
       );
     }
   }
-  console.log(distanceMatrix);
+
   return distanceMatrix[b.length][a.length];
 };
 

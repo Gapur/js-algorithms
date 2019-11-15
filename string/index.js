@@ -1,6 +1,7 @@
 const hammingDistance = require('./hammingDistance');
 const knuthMorrisPratt = require('./knuthMorrisPratt');
 const levenshteinDistance = require('./levenshteinDistance');
+const longestCommonSubstring = require('./longestCommonSubstring');
 
 console.log('start string -------');
 
@@ -24,6 +25,13 @@ const strTo = 'sitting';
 const lvnshteinDistance = levenshteinDistance(strFrom, strTo);
 
 console.log(`Levenshtein Distance ${lvnshteinDistance} from=${strFrom} to=${strTo}`);
+
+const string1 = 'ABABC';
+const string2 = 'BABCA';
+
+const longestSubstring = longestCommonSubstring(string1, string2);
+
+console.log(`Longest Common Substring ${longestSubstring} string1=${string1} string2=${string2}`);
 
 console.log('end string --------');
 
