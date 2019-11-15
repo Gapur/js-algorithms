@@ -2,6 +2,7 @@ const hammingDistance = require('./hammingDistance');
 const knuthMorrisPratt = require('./knuthMorrisPratt');
 const levenshteinDistance = require('./levenshteinDistance');
 const longestCommonSubstring = require('./longestCommonSubstring');
+const regularExpressionMatching = require('./regularExpressionMatching');
 
 console.log('start string -------');
 
@@ -32,6 +33,13 @@ const string2 = 'BABCA';
 const longestSubstring = longestCommonSubstring(string1, string2);
 
 console.log(`Longest Common Substring ${longestSubstring} string1=${string1} string2=${string2}`);
+
+const string = 'aab';
+const pattern = 'c*a*b';
+
+const matching = regularExpressionMatching(string, pattern);
+
+console.log(`Regular Expression Matching ${matching} string=${string} pattern=${pattern}`);
 
 console.log('end string --------');
 
