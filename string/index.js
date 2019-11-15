@@ -3,6 +3,7 @@ const knuthMorrisPratt = require('./knuthMorrisPratt');
 const levenshteinDistance = require('./levenshteinDistance');
 const longestCommonSubstring = require('./longestCommonSubstring');
 const regularExpressionMatching = require('./regularExpressionMatching');
+const zAlgorithm = require('./zAlgorithm');
 
 console.log('start string -------');
 
@@ -40,6 +41,13 @@ const pattern = 'c*a*b';
 const matching = regularExpressionMatching(string, pattern);
 
 console.log(`Regular Expression Matching ${matching} string=${string} pattern=${pattern}`);
+
+const zText = 'GEEKS FOR GEEKS';
+const zWord = 'GEEK';
+
+const zResult = zAlgorithm(text, word);
+
+console.log(`Z Algorithm ${zResult} text='${zText}' word='${zWord}'`);
 
 console.log('end string --------');
 
