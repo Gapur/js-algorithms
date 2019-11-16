@@ -3,6 +3,7 @@ const insertionSort = require('./insertion');
 const selectionSort = require('./selection');
 const mergeSort = require('./merge');
 const quickSort = require('./quicksort');
+const countingSort = require('./counting');
 
 console.log('start sort -------');
 
@@ -36,6 +37,12 @@ const arrayToQuicksort = [8, 2, 5, 1, 1, 7, 9, 4, 3];
 const quicksortSortedArray = quickSort(arrayToQuicksort, 0, arrayToQuicksort.length - 1);
 
 console.log(`Array sorted by quicksort: ${quicksortSortedArray.join(', ')}`);
+
+const arrayToCounting = [12, 2, 0, 1, 1, 7, 3, 5, 3];
+
+const coutingSortedArray = countingSort(arrayToCounting, 0, 12);
+
+console.log(`Array sorted by counting sort: ${coutingSortedArray.join(', ')}`);
 
 console.log('end sort --------');
 
