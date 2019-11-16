@@ -4,6 +4,7 @@ const selectionSort = require('./selection');
 const mergeSort = require('./merge');
 const quickSort = require('./quicksort');
 const countingSort = require('./counting');
+const shellSort = require('./shell');
 
 console.log('start sort -------');
 
@@ -43,6 +44,12 @@ const arrayToCounting = [12, 2, 0, 1, 1, 7, 3, 5, 3];
 const coutingSortedArray = countingSort(arrayToCounting, 0, 12);
 
 console.log(`Array sorted by counting sort: ${coutingSortedArray.join(', ')}`);
+
+const arrayToShell = [12, 2, 0, 1, 1, 7, 3, 5, 3];
+
+const shellSortedArray = shellSort(arrayToShell, 0, 12);
+
+console.log(`Array sorted by shell sort: ${shellSortedArray.join(', ')}`);
 
 console.log('end sort --------');
 
