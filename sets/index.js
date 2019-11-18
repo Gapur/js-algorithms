@@ -1,5 +1,6 @@
 const longestCommonSubsequence = require('./longestCommonSubsequence');
 const longestIncreasingSubsequence = require('./longestIncreasingSubsequence');
+const maximumSubarray = require('./maximumSubarray');
 
 console.log('start sets -------');
 
@@ -14,7 +15,13 @@ const sequence = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15];
 
 const lis = longestIncreasingSubsequence(sequence);
 
-console.log(`Longest Increasing Subsequence: ${lis} sequence=${sequence.join(', ')} `)
+console.log(`Longest Increasing Subsequence: ${lis} sequence=${sequence.join(', ')}`);
+
+const arr = [-2, 100, -3, 4, -1, 2, 1, -5, 4];
+
+const maxSubarray = maximumSubarray(arr);
+
+console.log(`Maximum Subarray: ${maxSubarray} array=${arr.join(', ')}`);
 
 console.log('end sets --------');
 
