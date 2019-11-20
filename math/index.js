@@ -2,6 +2,7 @@ const { euclideanAlgorithm, euclideanAlgorithmRecursive } = require('./euclidean
 const { factorial, factorialRecursive } = require('./factorial');
 const fastPowering = require('./fastPowering');
 const { fibonacci, fibonacciNth } = require('./fibonacci');
+const integerPartition = require('./integerPartition');
 
 console.log('start math -------');
 
@@ -33,6 +34,12 @@ const fibSequence = fibonacci(n);
 const fibNth = fibonacciNth(n);
 
 console.log(`Fibonacci n=${n} fibSequence=${fibSequence.join(', ')} fibonacciNth=${fibNth}`);
+
+const partition = 5;
+
+const intPartition = integerPartition(partition);
+
+console.log(`Integer Partition partition=${partition} intPartition=${intPartition}`);
 
 console.log('end math --------');
 
