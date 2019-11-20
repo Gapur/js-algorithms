@@ -1,5 +1,6 @@
 const { euclideanAlgorithm, euclideanAlgorithmRecursive } = require('./euclidean');
 const { factorial, factorialRecursive } = require('./factorial');
+const fastPowering = require('./fastPowering'); 
 
 console.log('start math -------');
 
@@ -18,6 +19,13 @@ const f2 = factorialRecursive(number);
 
 console.log(`Factorial ${number} factorial=${f1} factorialRecursive=${f2}`);
 
+const base = 2;
+const power = 8;
+
+const res = fastPowering(base, power);
+
+console.log(`Fast Powering base=${base} power=${power} res=${res}`);
+
 console.log('end math --------');
 
-module.exports = () => console.log('math is done')
+module.exports = () => console.log('math is done');
