@@ -1,6 +1,7 @@
 const { euclideanAlgorithm, euclideanAlgorithmRecursive } = require('./euclidean');
 const { factorial, factorialRecursive } = require('./factorial');
-const fastPowering = require('./fastPowering'); 
+const fastPowering = require('./fastPowering');
+const { fibonacci, fibonacciNth } = require('./fibonacci');
 
 console.log('start math -------');
 
@@ -25,6 +26,13 @@ const power = 8;
 const res = fastPowering(base, power);
 
 console.log(`Fast Powering base=${base} power=${power} res=${res}`);
+
+const n = 8;
+
+const fibSequence = fibonacci(n);
+const fibNth = fibonacciNth(n);
+
+console.log(`Fibonacci n=${n} fibSequence=${fibSequence.join(', ')} fibonacciNth=${fibNth}`);
 
 console.log('end math --------');
 
