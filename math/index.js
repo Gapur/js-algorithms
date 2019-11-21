@@ -3,6 +3,7 @@ const { factorial, factorialRecursive } = require('./factorial');
 const fastPowering = require('./fastPowering');
 const { fibonacci, fibonacciNth } = require('./fibonacci');
 const integerPartition = require('./integerPartition');
+const { isPowerOfTwo, isPowerOfTwoBitwise } = require('./isPowerOfTwo');
 
 console.log('start math -------');
 
@@ -40,6 +41,13 @@ const partition = 5;
 const intPartition = integerPartition(partition);
 
 console.log(`Integer Partition partition=${partition} intPartition=${intPartition}`);
+
+const numForCheck = 5;
+
+const isPowerOfTwo1 = isPowerOfTwo(numForCheck);
+const isPowerOfTwo2 = isPowerOfTwoBitwise(numForCheck);
+
+console.log(`Is Power Of Two numForCheck=${numForCheck} isPowerOfTwo1=${isPowerOfTwo1} isPowerOfTwo2=${isPowerOfTwo2}`);
 
 console.log('end math --------');
 
