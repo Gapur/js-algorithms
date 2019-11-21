@@ -5,6 +5,7 @@ const { fibonacci, fibonacciNth } = require('./fibonacci');
 const integerPartition = require('./integerPartition');
 const { isPowerOfTwo, isPowerOfTwoBitwise } = require('./isPowerOfTwo');
 const leastCommonMultiple = require('./leastCommonMultiple');
+const sieveOfEratosthenes = require('./sieveOfEratosthenes');
 
 console.log('start math -------');
 
@@ -56,6 +57,12 @@ const b = 16;
 const lcm = leastCommonMultiple(a, b);
 
 console.log(`Least Common Multiple a=${a} b=${b} lcm=${lcm}`);
+
+const maxNumber = 30;
+
+const primes = sieveOfEratosthenes(maxNumber);
+
+console.log(`Sieve Of Eratosthenes maxNumber=${maxNumber} primes=${primes.join(', ')}`);
 
 console.log('end math --------');
 
