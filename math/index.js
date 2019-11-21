@@ -4,6 +4,7 @@ const fastPowering = require('./fastPowering');
 const { fibonacci, fibonacciNth } = require('./fibonacci');
 const integerPartition = require('./integerPartition');
 const { isPowerOfTwo, isPowerOfTwoBitwise } = require('./isPowerOfTwo');
+const leastCommonMultiple = require('./leastCommonMultiple');
 
 console.log('start math -------');
 
@@ -48,6 +49,13 @@ const isPowerOfTwo1 = isPowerOfTwo(numForCheck);
 const isPowerOfTwo2 = isPowerOfTwoBitwise(numForCheck);
 
 console.log(`Is Power Of Two numForCheck=${numForCheck} isPowerOfTwo1=${isPowerOfTwo1} isPowerOfTwo2=${isPowerOfTwo2}`);
+
+const a = 20;
+const b = 16;
+
+const lcm = leastCommonMultiple(a, b);
+
+console.log(`Least Common Multiple a=${a} b=${b} lcm=${lcm}`);
 
 console.log('end math --------');
 
