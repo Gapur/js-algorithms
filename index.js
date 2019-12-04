@@ -9,3 +9,5 @@ search();
 string();
 sets();
 math();
+
+require('./data-structures');
