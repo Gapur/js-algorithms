@@ -1,5 +1,6 @@
 const BinaryTreeNode = require('../../data-structures/tree/BinaryTreeNode');
 const breadthFirstSearch = require('./breadthFirstSearch');
+const depthFirstSearch = require('./depthFirstSearch');
 
 console.log('start tree -------');
 
