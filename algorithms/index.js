@@ -5,6 +5,7 @@ const sets = require('./sets');
 const math = require('./math');
 const linkedList = require('./linked-list');
 const tree = require('./tree');
+const graph = require('./graph');
 
 sorts();
 search();
@@ -13,3 +14,4 @@ sets();
 math();
 linkedList();
 tree();
+graph();
