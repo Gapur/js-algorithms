@@ -5,6 +5,7 @@ const Heap = require('./heap');
 const HashTable = require('./hash-table');
 const BinaryTreeNode = require('./tree');
 const Graph = require('./graph');
+const PriorityQueue = require('./priority-queue');
 
 module.exports = {
   LinkedList,
@@ -14,4 +15,5 @@ module.exports = {
   HashTable,
   BinaryTreeNode,
   Graph,
+  PriorityQueue,
 };
