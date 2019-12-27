@@ -2,6 +2,7 @@ const Graph = require('../../data-structures/graph/Graph');
 const GraphVertex = require('../../data-structures/graph/GraphVertex');
 const GraphEdge = require('../../data-structures/graph/GraphEdge');
 const dijkstra = require('./dijkstra');
+const prim = require('./prim');
 
 console.log('start Graph -------');
 
@@ -50,5 +51,37 @@ const { distances, previousVertices } = dijkstra(graph, vertexA);
 console.log(`Graph ${graph.toString()} distances=${Object.keys(distances).map((d) => `${d}=${distances[d]}`)}`);
 
 console.log('end dijkstra --------');
+
+console.log('start prim -------');
+
+const pVertexA = new GraphVertex('A');
+const pVertexB = new GraphVertex('B');
+const pVertexC = new GraphVertex('C');
+const pVertexD = new GraphVertex('D');
+
+const pEdgeAB = new GraphEdge(pVertexA, pVertexB, 1);
+const pEdgeAD = new GraphEdge(pVertexA, pVertexD, 3);
+const pEdgeBC = new GraphEdge(pVertexB, pVertexC, 1);
+const pEdgeBD = new GraphEdge(pVertexB, pVertexD, 3);
+const pEdgeCD = new GraphEdge(pVertexC, pVertexD, 1);
+
+const graphForPrim = new Graph();
+
+graphForPrim
+  .addEdge(pEdgeAB)
+  .addEdge(pEdgeAD)
+  .addEdge(pEdgeBC)
+  .addEdge(pEdgeBD)
+  .addEdge(pEdgeCD);
+
+const minimumSpanningTree = prim(graphForPrim);
+
+console.log(`graph weigth to be 9 = ${graphForPrim.getWeight()}`);
+
+console.log(`${minimumSpanningTree.getWeight()} to be 3, all verticles length ${minimumSpanningTree.getAllVertices().length}`);
+
+console.log(`graph - ${minimumSpanningTree.toString()}`);
+
+console.log('end prim --------');
 
 module.exports = () => console.log('Graph is done');
