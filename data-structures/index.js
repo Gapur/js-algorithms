@@ -6,6 +6,7 @@ const HashTable = require('./hash-table');
 const BinaryTreeNode = require('./tree');
 const Graph = require('./graph');
 const PriorityQueue = require('./priority-queue');
+const DisjointSet = require('./disjoint-set');
 
 module.exports = {
   LinkedList,
@@ -16,4 +17,5 @@ module.exports = {
   BinaryTreeNode,
   Graph,
   PriorityQueue,
+  DisjointSet,
 };
