@@ -3,6 +3,7 @@ const GraphVertex = require('../../data-structures/graph/GraphVertex');
 const GraphEdge = require('../../data-structures/graph/GraphEdge');
 const dijkstra = require('./dijkstra');
 const prim = require('./prim');
+const kruskal = require('./kruskal');
 
 console.log('start Graph -------');
 
@@ -83,5 +84,54 @@ console.log(`${minimumSpanningTree.getWeight()} to be 3, all verticles length ${
 console.log(`graph - ${minimumSpanningTree.toString()}`);
 
 console.log('end prim --------');
+
+console.log('start kruskal --------');
+
+const kVertexA = new GraphVertex('A');
+const kVertexB = new GraphVertex('B');
+const kVertexC = new GraphVertex('C');
+const kVertexD = new GraphVertex('D');
+const kVertexE = new GraphVertex('E');
+const kVertexF = new GraphVertex('F');
+const kVertexG = new GraphVertex('G');
+
+const kEdgeAB = new GraphEdge(kVertexA, kVertexB, 2);
+const kEdgeAD = new GraphEdge(kVertexA, kVertexD, 3);
+const kEdgeAC = new GraphEdge(kVertexA, kVertexC, 3);
+const kEdgeBC = new GraphEdge(kVertexB, kVertexC, 4);
+const kEdgeBE = new GraphEdge(kVertexB, kVertexE, 3);
+const kEdgeDF = new GraphEdge(kVertexD, kVertexF, 7);
+const kEdgeEC = new GraphEdge(kVertexE, kVertexC, 1);
+const kEdgeEF = new GraphEdge(kVertexE, kVertexF, 8);
+const kEdgeFG = new GraphEdge(kVertexF, kVertexG, 9);
+const kEdgeFC = new GraphEdge(kVertexF, kVertexC, 6);
+
+const graphForKruskal = new Graph();
+
+graphForKruskal
+  .addEdge(kEdgeAB)
+  .addEdge(kEdgeAD)
+  .addEdge(kEdgeAC)
+  .addEdge(kEdgeBC)
+  .addEdge(kEdgeBE)
+  .addEdge(kEdgeDF)
+  .addEdge(kEdgeEC)
+  .addEdge(kEdgeEF)
+  .addEdge(kEdgeFC)
+  .addEdge(kEdgeFG);
+
+console.log(`graph for kruskal ${graphForKruskal.toString()}, weight=${graphForKruskal.getWeight()} to be = 46`);
+
+const kMinimumSpanningTree = kruskal(graphForKruskal);
+
+console.log(`minimumSpanningTree weight=${kMinimumSpanningTree.getWeight()} to be 24`);
+
+console.log(`kruskal graph = ${kMinimumSpanningTree.toString()} to be = E,C,A,B,D,F,G`);
+
+console.log(`${kMinimumSpanningTree.getAllVertices().length} equal ${graphForKruskal.getAllVertices().length}`);
+
+console.log(`${kMinimumSpanningTree.getAllEdges().length} to be = ${graphForKruskal.getAllVertices().length - 1}`);
+
+console.log('end kruskal --------');
 
 module.exports = () => console.log('Graph is done');
