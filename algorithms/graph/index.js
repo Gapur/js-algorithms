@@ -5,6 +5,7 @@ const dijkstra = require('./dijkstra');
 const prim = require('./prim');
 const kruskal = require('./kruskal');
 const floydWarshall = require('./floydWarshall');
+const topologicalSort = require('./topologicalSort');
 
 console.log('start Graph -------');
 
@@ -178,5 +179,43 @@ console.log(`vertices ${vertices.toString}`);
 console.log(`distances \n ${disFw.map((d) => `- ${d.join(', ')} - \n`).join(' ')}`);
 
 console.log('end floydWarshall --------');
+
+console.log('start topologicalSort');
+
+const tsVertexA = new GraphVertex('A');
+const tsVertexB = new GraphVertex('B');
+const tsVertexC = new GraphVertex('C');
+const tsVertexD = new GraphVertex('D');
+const tsVertexE = new GraphVertex('E');
+const tsVertexF = new GraphVertex('F');
+const tsVertexG = new GraphVertex('G');
+const tsVertexH = new GraphVertex('H');
+
+const tsEdgeAC = new GraphEdge(tsVertexA, tsVertexC);
+const tsEdgeBC = new GraphEdge(tsVertexB, tsVertexC);
+const tsEdgeBD = new GraphEdge(tsVertexB, tsVertexD);
+const tsEdgeCE = new GraphEdge(tsVertexC, tsVertexE);
+const tsEdgeDF = new GraphEdge(tsVertexD, tsVertexF);
+const tsEdgeEF = new GraphEdge(tsVertexE, tsVertexF);
+const tsEdgeEH = new GraphEdge(tsVertexE, tsVertexH);
+const tsEdgeFG = new GraphEdge(tsVertexF, tsVertexG);
+
+const graphForTS = new Graph(true);
+
+graphForTS
+  .addEdge(tsEdgeAC)
+  .addEdge(tsEdgeBC)
+  .addEdge(tsEdgeBD)
+  .addEdge(tsEdgeCE)
+  .addEdge(tsEdgeDF)
+  .addEdge(tsEdgeEF)
+  .addEdge(tsEdgeEH)
+  .addEdge(tsEdgeFG);
+
+const sortedVertices = topologicalSort(graphForTS);
+
+console.log(`graph ${graphForTS.toString()} sortedVertices ${sortedVertices.toString()}`);
+
+console.log('end topologicalSort');
 
 module.exports = () => console.log('Graph is done');
