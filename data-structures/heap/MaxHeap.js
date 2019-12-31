@@ -7,6 +7,6 @@ module.exports = class MaxHeap extends Heap {
    * For MaxHeap the first element must be always bigger or equal.
    */
   pairIsInCorrectOrder(firstElement, secondElement) {
-    return firstElement >= secondElement;
+    return this.compare.greaterThanOrEqual(firstElement, secondElement);
   }
 };

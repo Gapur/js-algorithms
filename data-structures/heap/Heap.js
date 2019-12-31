@@ -1,9 +1,12 @@
+const Comparator = require('../../utils/Comparator');
+
 module.exports = class Heap {
-  constructor() {
+  constructor(comparatorFunction) {
     if (new.target === Heap) {
       throw new TypeError('Cannot construct Heap instance directly');
     }
     this.heapContainer = [];
+    this.compare = new Comparator(comparatorFunction);
   }
 
   getLeftChildIndex(parentIndex) {
@@ -119,11 +122,11 @@ module.exports = class Heap {
     return this;
   }
 
-  find(item) {
+  find(item, comparator = this.compare) {
     const foundItemIndices = [];
 
     for (let itemIndex = 0; itemIndex < this.heapContainer.length; itemIndex += 1) {
-      if (item === this.heapContainer[itemIndex]) {
+      if (comparator.equal(item, this.heapContainer[itemIndex])) {
         foundItemIndices.push(itemIndex);
       }
     }
