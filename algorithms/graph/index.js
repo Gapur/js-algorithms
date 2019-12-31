@@ -4,6 +4,7 @@ const GraphEdge = require('../../data-structures/graph/GraphEdge');
 const dijkstra = require('./dijkstra');
 const prim = require('./prim');
 const kruskal = require('./kruskal');
+const floydWarshall = require('./floydWarshall');
 
 console.log('start Graph -------');
 
@@ -133,5 +134,49 @@ console.log(`${kMinimumSpanningTree.getAllVertices().length} equal ${graphForKru
 console.log(`${kMinimumSpanningTree.getAllEdges().length} to be = ${graphForKruskal.getAllVertices().length - 1}`);
 
 console.log('end kruskal --------');
+
+console.log('start floydWarshall');
+
+const fwVertexA = new GraphVertex('A');
+const fwVertexB = new GraphVertex('B');
+const fwVertexC = new GraphVertex('C');
+const fwVertexD = new GraphVertex('D');
+
+const fwEdgeAB = new GraphEdge(fwVertexA, fwVertexB, 3);
+const fwEdgeBA = new GraphEdge(fwVertexB, fwVertexA, 8);
+const fwEdgeAD = new GraphEdge(fwVertexA, fwVertexD, 7);
+const fwEdgeDA = new GraphEdge(fwVertexD, fwVertexA, 2);
+const fwEdgeBC = new GraphEdge(fwVertexB, fwVertexC, 2);
+const fwEdgeCA = new GraphEdge(fwVertexC, fwVertexA, 5);
+const fwEdgeCD = new GraphEdge(fwVertexC, fwVertexD, 1);
+
+const graphForFw = new Graph(true);
+
+// Add vertices first just to have them in desired order.
+graphForFw
+  .addVertex(fwVertexA)
+  .addVertex(fwVertexB)
+  .addVertex(fwVertexC)
+  .addVertex(fwVertexD);
+
+// Now, when vertices are in correct order let's add edges.
+graphForFw
+  .addEdge(fwEdgeAB)
+  .addEdge(fwEdgeBA)
+  .addEdge(fwEdgeAD)
+  .addEdge(fwEdgeDA)
+  .addEdge(fwEdgeBC)
+  .addEdge(fwEdgeCA)
+  .addEdge(fwEdgeCD);
+
+const { distances: disFw, nextVertices } = floydWarshall(graphForFw);
+
+const vertices = graphForFw.getAllVertices();
+
+console.log(`vertices ${vertices.toString}`);
+
+console.log(`distances \n ${disFw.map((d) => `- ${d.join(', ')} - \n`).join(' ')}`);
+
+console.log('end floydWarshall --------');
 
 module.exports = () => console.log('Graph is done');
