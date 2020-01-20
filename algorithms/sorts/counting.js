@@ -1,20 +1,42 @@
-const sort = (array, min, max) => {
-  const count = [];
-  for (let i = min; i <= max; i++) {
-    count[i] = 0;
+const Comparator = require('../../utils/Comparator');
+
+const comparator = new Comparator();
+
+const CountingSort = (originalArray, smallestElement, biggestElement) => {
+  let detectedSmallestElement = smallestElement || 0;
+  let detectedBiggestElement = biggestElement || 0;
+
+  if (smallestElement === undefined || biggestElement === undefined) {
+    originalArray.forEach((element) => {
+      if (comparator.greaterThan(element, detectedBiggestElement)) {
+        detectedBiggestElement = element;
+      }
+      if (comparator.lessThan(element, detectedSmallestElement)) {
+        detectedSmallestElement = element;
+      }
+    });
   }
-  for (let i = 0; i < array.length; i++) {
-    count[array[i]] += 1;
+
+  const buckets = Array(detectedBiggestElement - detectedSmallestElement + 1).fill(0);
+  originalArray.forEach((element) => {
+    buckets[element - detectedSmallestElement] += 1;
+  });
+
+  for (let bucketIndex = 1; bucketIndex < buckets.length; bucketIndex += 1) {
+    buckets[bucketIndex] += buckets[bucketIndex - 1];
   }
-  let j = 0;
-  for (let i = min; i <= max; i++) {
-    while (count[i] > 0) {
-      array[j] = i;
-      j++;
-      count[i]--;
-    }
+
+  buckets.pop();
+  buckets.unshift(0);
+
+  const sortedArray = Array(originalArray.length).fill(null);
+  for (let elementIndex = 0; elementIndex < originalArray.length; elementIndex += 1) {
+    const element = originalArray[elementIndex];
+    const elementSortedPosition = buckets[element - detectedSmallestElement];
+    sortedArray[elementSortedPosition] = element;
+    buckets[element - detectedSmallestElement] += 1;
   }
-  return array;
+  return sortedArray;
 };
 
-module.exports = sort;
+module.exports = CountingSort;
