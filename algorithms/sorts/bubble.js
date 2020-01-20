@@ -1,18 +1,27 @@
-const sort = (array) => {
-  let swapped;
-  do {
-    swapped = false;
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] > array[i + 1]) {
-        const temp = array[i];
-        array[i] = array[i + 1];
-        array[i + 1] = temp;
-        swapped = true;
+const Sort = require('./sort');
+
+class BubbleSort extends Sort {
+  sort(originalArray) {
+    let swapped = false;
+    const array = [...originalArray];
+    for (let i = 1; i < array.length; i += 1) {
+      swapped = false;
+      this.callbacks.visitingCallback(array[i]);
+
+      for (let j = 0; j < array.length - i; j += 1) {
+        this.callbacks.visitingCallback(array[j]);
+        if (this.comparator.lessThan(array[j + 1], array[j])) {
+          [array[j], array[j + 1]] = [array[j + 1], array[j]];
+          swapped = true;
+        }
+      }
+
+      if (!swapped) {
+        return array;
       }
     }
-  } while (swapped);
+    return array;
+  }
+}
 
-  return array;
-};
-
-module.exports = sort;
+module.exports = BubbleSort;
