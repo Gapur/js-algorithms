@@ -1,18 +1,19 @@
-const sort = (array) => {
-  for (let i = 0; i < array.length; i++) {
-    let min = i;
-    for (let j = i + 1; j < array.length; j++) {
-      if (array[min] > array[j]) {
-        min = j;
+const SelectionSort = (array) => {
+  for (let i = 0; i < array.length - 1; i += 1) {
+    let minIndex = i;
+
+    for (let j = i + 1; j < array.length; j += 1) {
+      if (array[j] < array[minIndex]) {
+        minIndex = j;
       }
     }
-    if (min !== i) {
-      const temp = array[i];
-      array[i] = array[min];
-      array[min] = temp;
+
+    if (minIndex !== i) {
+      [array[i], array[minIndex]] = [array[minIndex], array[i]];
     }
   }
+
   return array;
 };
 
-module.exports = sort;
+module.exports = SelectionSort;
