@@ -1,19 +1,34 @@
-const search = (array, toFind) => {
-  let left = 0;
-  let right = array.length - 1;
-  while (left <= right && toFind >= array[left] && toFind <= array[right]) {
-    const delta = (toFind - array[left]) / (array[right] - array[left]);
-    const mid = left + Math.floor((right - left) * delta);
-    if (array[mid] === toFind) {
-      return mid;
+const InterpolationSearch = (sortedArray, seekElement) => {
+  let leftIndex = 0;
+  let rightIndex = sortedArray.length - 1;
+
+  while (leftIndex <= rightIndex) {
+    const rangeDelta = sortedArray[rightIndex] - sortedArray[leftIndex];
+    const indexDelta = rightIndex - leftIndex;
+    const valueDelta = seekElement - sortedArray[leftIndex];
+
+    if (valueDelta < 0) {
+      return -1;
     }
-    if (array[mid] < toFind) {
-      left = mid + 1;
+
+    if (!rangeDelta) {
+      return sortedArray[leftIndex] === seekElement ? leftIndex : -1;
+    }
+
+    const middleIndex = leftIndex + Math.floor((valueDelta * indexDelta) / rangeDelta);
+
+    if (sortedArray[middleIndex] === seekElement) {
+      return middleIndex;
+    }
+
+    if (sortedArray[middleIndex] < seekElement) {
+      leftIndex = middleIndex + 1;
     } else {
-      right = mid - 1;
+      rightIndex = middleIndex - 1;
     }
   }
+
   return -1;
 };
 
-module.exports = search;
+module.exports = InterpolationSearch;

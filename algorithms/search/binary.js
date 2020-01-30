@@ -1,18 +1,22 @@
-const search = (array, toFind) => {
-  let left = 0;
-  let right = array.length - 1;
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
-    if (array[mid] === toFind) {
-      return mid;
+const BinarySearch = (sortedArray, seekElement) => {
+  let startIndex = 0;
+  let endIndex = sortedArray.length - 1;
+
+  while (startIndex <= endIndex) {
+    const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
+
+    if (sortedArray[middleIndex] === seekElement) {
+      return middleIndex;
     }
-    if (array[mid] < toFind) {
-      left = mid + 1;
+
+    if (sortedArray[middleIndex] < seekElement) {
+      startIndex = middleIndex + 1;
     } else {
-      right = mid - 1;
+      endIndex = middleIndex - 1;
     }
   }
+
   return -1;
 };
 
-module.exports = search;
+module.exports = BinarySearch;
