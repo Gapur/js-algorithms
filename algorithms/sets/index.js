@@ -1,6 +1,7 @@
 const longestCommonSubsequence = require('./longestCommonSubsequence');
 const longestIncreasingSubsequence = require('./longestIncreasingSubsequence');
 const maximumSubarray = require('./maximumSubarray');
+const combinationSum = require('./combinationSum');
 
 console.log('start sets -------');
 
@@ -22,6 +23,10 @@ const arr = [-2, 100, -3, 4, -1, 2, 1, -5, 4];
 const maxSubarray = maximumSubarray(arr);
 
 console.log(`Maximum Subarray: ${maxSubarray} array=${arr.join(', ')}`);
+
+const sum = combinationSum([2, 3, 6, 7], 7);
+
+console.log(`Matrix=[2, 3, 6, 7] target=7 combinationSum=${sum}`);
 
 console.log('end sets --------');
 
